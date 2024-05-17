@@ -1,18 +1,20 @@
 package com.example.clock;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout mainLayout;
+    private ConstraintLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +36,9 @@ public class MainActivity extends AppCompatActivity {
         Drawable background;
 
         if (hour >= 6 && hour < 18) {
-            // Day time
-            background = getResources().getDrawable(R.drawable.bg_day);
+            background = ContextCompat.getDrawable(this, R.drawable.bg_day);
         } else {
-            // Night time
-            background = getResources().getDrawable(R.drawable.bg_night);
+            background = ContextCompat.getDrawable(this, R.drawable.bg_night);
         }
 
         mainLayout.setBackground(background);
